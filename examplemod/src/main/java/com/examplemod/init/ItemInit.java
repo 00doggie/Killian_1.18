@@ -61,17 +61,17 @@ public class ItemInit {
                     new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
 
     public static final RegistryObject<Item> COPPER_SWORD = ITEMS.register("copper_sword",
-            () -> new CopperSword(Tiers.COPPER, 3, -2.4F,
+            () -> new CopperSword(Tiers.COPPER, 3, -2.4F, CopperSword.Rust.CLEAN,
                     new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
     public static final RegistryObject<Item> EXPOSED_COPPER_SWORD = ITEMS.register("exposed_copper_sword",
-            () -> new CopperSword(Tiers.EXPOSED_COPPER, 4, -2.4F,
+            () -> new CopperSword(Tiers.EXPOSED_COPPER, 4, -2.4F, CopperSword.Rust.EXPOSE,
                     new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
     public static final RegistryObject<Item> WEATHERED_COPPER_SWORD = ITEMS.register("weathered_copper_sword",
-            () -> new CopperSword(Tiers.WEATHERED_COPPER, 4, -2.4F,
+            () -> new CopperSword(Tiers.WEATHERED_COPPER, 4, -2.4F, CopperSword.Rust.WEATHER,
                     new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
 
     public static final RegistryObject<Item> OXODIZED_COPPER_SWORD = ITEMS.register("oxodized_copper_sword",
-            () -> new CopperSword(Tiers.OXODIZED_COPPER, 4, -2.4F,
+            () -> new CopperSword(Tiers.OXODIZED_COPPER, 4, -2.4F, CopperSword.Rust.OXIDIZED,
                     new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
 
 

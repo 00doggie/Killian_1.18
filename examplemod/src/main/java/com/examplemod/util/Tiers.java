@@ -15,14 +15,14 @@ public class Tiers {
             2.0F, 14, BlockTags.NEEDS_STONE_TOOL,
             () -> Ingredient.of(Items.COPPER_INGOT));
     public static final ForgeTier EXPOSED_COPPER = new ForgeTier(2, 190, 7.5F,
-            2.0F, 14, BlockTags.NEEDS_STONE_TOOL,
+            3.0F, 16, BlockTags.NEEDS_STONE_TOOL,
             () -> Ingredient.of(Items.COPPER_INGOT));
 
-    public static final ForgeTier WEATHERED_COPPER = new ForgeTier(2, 190, 7.5F,
-            2.0F, 14, BlockTags.NEEDS_STONE_TOOL,
+    public static final ForgeTier WEATHERED_COPPER = new ForgeTier(2, 160, 9F,
+            4.0F, 18, BlockTags.NEEDS_STONE_TOOL,
             () -> Ingredient.of(Items.COPPER_INGOT));
 
-    public static final ForgeTier OXODIZED_COPPER = new ForgeTier(2, 190, 7.5F,
-            2.0F, 14, BlockTags.NEEDS_STONE_TOOL,
+    public static final ForgeTier OXODIZED_COPPER = new ForgeTier(2, 130, 11F,
+            5.0F, 20, BlockTags.NEEDS_STONE_TOOL,
             () -> Ingredient.of(Items.COPPER_INGOT));
 }
