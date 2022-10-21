@@ -34,7 +34,7 @@ public class CheeseMakerMenu extends AbstractContainerMenu {
 
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
             this.addSlot(new ModResultSlot(handler, 0, 80, 60));
-            this.addSlot(new SlotItemHandler(handler, 1, 57, 18));
+            this.addSlot(new SlotItemHandler(handler, 1, 80, 24));
 
         });
 

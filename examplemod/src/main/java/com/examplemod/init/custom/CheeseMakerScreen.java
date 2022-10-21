@@ -9,7 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 public class CheeseMakerScreen extends AbstractContainerScreen<CheeseMakerMenu> {
 private static final ResourceLocation TEXTURE =
-        new ResourceLocation(ExampleMod.MOD_ID, "textures/gui/cheese_maker.png");
+        new ResourceLocation(ExampleMod.MOD_ID, "textures/gui/cheese_maker_2.png");
 
 public CheeseMakerScreen(CheeseMakerMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
