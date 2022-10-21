@@ -26,6 +26,9 @@ public class ItemInit {
     public static final RegistryObject<Item> TOMATO = register("tomato",
             () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_FOOD).food(FoodInit.TOMATO)));
 
+    public static final RegistryObject<Item> CHEESE = register("cheese",
+            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_FOOD)));
+
 
     public static final RegistryObject<Item> PLATINUM_HELMET = ITEMS.register("platinum_helmet",
             () -> new ArmorItem(ArmorMaterials.PLATINUM_ARMOR, EquipmentSlot.HEAD,
