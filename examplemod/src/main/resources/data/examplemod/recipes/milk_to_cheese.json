@@ -1,0 +1,11 @@
+{
+  "type": "examplemod:cheese_making",
+  "ingredients": [
+    {
+      "item": "minecraft:milk_bucket"
+    }
+  ],
+  "output": {
+    "item": "minecraft:redstone"
+  }
+}

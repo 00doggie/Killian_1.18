@@ -1,6 +1,7 @@
 package com.examplemod.init;
 
 import com.examplemod.ExampleMod;
+import com.examplemod.init.custom.CheeseMakerBlock;
 import com.examplemod.init.custom.TomatoPlant;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -32,6 +33,10 @@ public class BlockInit {
                     .strength(3f, 1200).sound(SoundType.METAL).requiresCorrectToolForDrops()), CreativeModeTab.TAB_BUILDING_BLOCKS);
     public static final RegistryObject<Block> TOMATO_PLANT = registerBlockWithoutBlockItem("tomato_plant",
             () -> new TomatoPlant(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion()));
+
+
+    public static final RegistryObject<Block> CHEESE_MAKER = registerBlock("cheese_maker",
+            () -> new CheeseMakerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()), CreativeModeTab.TAB_BUILDING_BLOCKS);
 
 
     private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {

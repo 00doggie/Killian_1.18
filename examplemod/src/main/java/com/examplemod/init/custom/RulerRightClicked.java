@@ -22,6 +22,8 @@ import net.minecraftforge.network.NetworkHooks;
 import javax.annotation.Nullable;
 @Mod.EventBusSubscriber
 public class RulerRightClicked {
+
+
     @SubscribeEvent
     public static void onUseItem(PlayerInteractEvent.RightClickItem event) {
         ItemStack heldStack = event.getItemStack();

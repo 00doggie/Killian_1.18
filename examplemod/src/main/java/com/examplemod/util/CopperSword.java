@@ -96,11 +96,10 @@ public class CopperSword extends SwordItem {
 
             if (index >= 0) {
                 if (getTicks(stack) >= rust.getTicks()) {
-
-                    ItemStack newStack = new ItemStack(rust.getRusting(), 1, stack.getTag());
-
-
-                    newStack.setDamageValue(stack.getDamageValue());
+                    ItemStack newStack = new ItemStack(rust.getRusting());
+                    if(stack.hasTag()){
+                        newStack.setTag(stack.getTag().copy());
+                    }
 
 
 
@@ -128,12 +127,18 @@ public class CopperSword extends SwordItem {
     //this was just to see the ticks in the tooltip to test it
 
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flag) {
-        if(rust == Rust.OXIDIZED){
+        if (flag.isAdvanced()) {
 
-        } else{
 
-            list.add(new TextComponent( rust.getSeconds() - getTicks(stack) /20+ " "+ "Seconds Until Rust"));
-        }
+        if (rust == Rust.OXIDIZED) {
+
+         } else {
+
+               list.add(new TextComponent(rust.getSeconds() - getTicks(stack) / 20 + " " + "Seconds Until Rust"));
+      }
+}
+
+
 
 
         super.appendHoverText(stack, level, list, flag);
@@ -153,6 +158,8 @@ public class CopperSword extends SwordItem {
         return stack.hasTag() ? stack.getTag().getInt("ticks") : 0;
 
     }
+
+
 
 
 

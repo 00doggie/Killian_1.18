@@ -1,5 +1,6 @@
 package com.examplemod.util;
 
+import com.examplemod.init.custom.CheeseMakerScreen;
 import com.examplemod.init.custom.RulerScreen;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.api.distmarker.Dist;
@@ -15,6 +16,7 @@ public class ScreenUtil {
     public static void clientLoad(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
             MenuScreens.register(MenuUtil.RULER, RulerScreen::new);
+            MenuScreens.register(MenuUtil.CHEESE_MAKER_MENU.get(), CheeseMakerScreen::new);
             //registers TrainingStickScreen
 
         });

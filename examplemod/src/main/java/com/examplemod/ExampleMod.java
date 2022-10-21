@@ -3,7 +3,7 @@ package com.examplemod;
 import com.examplemod.init.BlockInit;
 import com.examplemod.init.FoodInit;
 import com.examplemod.init.ItemInit;
-import com.examplemod.util.ModItemProperties;
+import com.examplemod.util.*;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.common.MinecraftForge;
@@ -26,6 +26,10 @@ public class ExampleMod{
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         BlockInit.BLOCKS.register(bus);
         ItemInit.ITEMS.register(bus);
+        ModBlockEntities.BLOCK_ENTITIES.register(bus);
+        MenuUtil.MENUS.register(bus);
+        ModRecipes.SERIALIZERS.register(bus);
+
 
 
 
