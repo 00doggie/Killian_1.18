@@ -30,7 +30,7 @@ public class ItemInit {
             () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_FOOD)));
 
 
-    public static final RegistryObject<Item> PLATINUM_HELMET = ITEMS.register("platinum_helmet",
+    /*public static final RegistryObject<Item> PLATINUM_HELMET = ITEMS.register("platinum_helmet",
             () -> new ArmorItem(ArmorMaterials.PLATINUM_ARMOR, EquipmentSlot.HEAD,
                     new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 
@@ -46,6 +46,8 @@ public class ItemInit {
             () -> new ArmorItem(ArmorMaterials.PLATINUM_ARMOR, EquipmentSlot.FEET,
                     new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 
+     */
+
 
     public static final RegistryObject<Item> PLATINUM_SWORD = ITEMS.register("platinum_sword",
             () -> new SwordItem(Tiers.PLATINUM, 4, -2.4f,
@@ -58,6 +60,10 @@ public class ItemInit {
             () -> new HoeItem(Tiers.PLATINUM, -2, -1f,
                     new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
 
+
+    public static final RegistryObject<Item> PLATINUM_BOOTS = ITEMS.register("platinum_boots",
+            () -> new ArmorItem(ArmorMaterials.Hard_PLATINUM_ARMOR, EquipmentSlot.FEET,
+                    new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 
     public static final RegistryObject<Item> PLATINUM_AXE = ITEMS.register("platinum_axe",
             () -> new AxeItem(Tiers.PLATINUM, 7, -3.1f,

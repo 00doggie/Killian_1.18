@@ -24,8 +24,6 @@ public class CopperSword extends SwordItem {
 
     private final Rust rust;
 
-
-
     public CopperSword(Tier tier, int attackDamage, float attackSpeed, Rust rust, Properties properties) {
         super(tier, attackDamage, attackSpeed, properties);
         this.rust = rust;
@@ -78,7 +76,6 @@ public class CopperSword extends SwordItem {
 
     }
 
-
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
 
@@ -101,9 +98,6 @@ public class CopperSword extends SwordItem {
                         newStack.setTag(stack.getTag().copy());
                     }
 
-
-
-
                     setTicks(newStack, 0);
 
 
@@ -115,7 +109,6 @@ public class CopperSword extends SwordItem {
                 setTicks(stack, getTicks(stack) + 1);
 
             }
-
 
         });
 
@@ -138,14 +131,8 @@ public class CopperSword extends SwordItem {
       }
 }
 
-
-
-
         super.appendHoverText(stack, level, list, flag);
     }
-
-
-
 
 
     public static void setTicks(ItemStack stack, int ticks) {

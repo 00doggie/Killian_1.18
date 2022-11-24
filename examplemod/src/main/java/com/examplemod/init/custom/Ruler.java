@@ -1,32 +1,31 @@
 package com.examplemod.init.custom;
 
-import com.mojang.authlib.GameProfile;
+
 import io.netty.buffer.Unpooled;
-import net.minecraft.client.Minecraft;
+
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
-import net.minecraft.server.MinecraftServer;
+
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.server.network.ServerConnectionListener;
+
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.MenuProvider;
+
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.util.FakePlayer;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+
 import net.minecraftforge.network.NetworkHooks;
 
-import java.util.UUID;
+
 
 public class Ruler extends Item {
+
     public Ruler(Properties p_41383_) {
         super(p_41383_);
     }
@@ -60,8 +59,17 @@ public class Ruler extends Item {
         RulerRightClicked.execute(world, x, y, z, entity);
         return rc;
     }
-    //uses packets to communicate with the server
-}
+
+
+
+
+
+
+        //uses packets to communicate with the server
+
+
+    }
+
 
 
 

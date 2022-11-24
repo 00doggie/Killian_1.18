@@ -155,12 +155,9 @@ public class CheeseMakerEntity extends BlockEntity implements MenuProvider {
 
         return match.isPresent() && canInsertAmountIntoOutputSlot(inventory)
                 && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem());
-                //&& hasWaterInWaterSlot(entity) && hasToolsInToolSlot(entity);
-
-
-
 
     }
+    //&& hasWaterInWaterSlot(entity) && hasToolsInToolSlot(entity);
 
 
     /*private static boolean hasWaterInWaterSlot(CheeseMakerEntity entity) {
@@ -172,6 +169,10 @@ public class CheeseMakerEntity extends BlockEntity implements MenuProvider {
     }
 
      */
+      /*
+             entity.itemHandler.extractItem(1,1, false);
+             entity.itemHandler.getStackInSlot(2).hurt(1, new Random(), null);
+             */
 
 
 
@@ -190,10 +191,7 @@ public class CheeseMakerEntity extends BlockEntity implements MenuProvider {
 
             entity.itemHandler.setStackInSlot(0, new ItemStack(match.get().getResultItem().getItem(),
                     entity.itemHandler.getStackInSlot(1).getCount() + 1));
-             /*
-             entity.itemHandler.extractItem(1,1, false);
-             entity.itemHandler.getStackInSlot(2).hurt(1, new Random(), null);
-             */
+
 
             entity.resetProgress();
         }

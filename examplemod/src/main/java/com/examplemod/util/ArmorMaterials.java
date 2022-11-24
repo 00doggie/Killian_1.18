@@ -7,17 +7,32 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Supplier;
 
-public enum ArmorMaterials implements ArmorMaterial {
+public enum ArmorMaterials implements ArmorMaterial
 
-    PLATINUM_ARMOR("platinum_armor", 20, new int[]{2, 5, 7, 3}, 12, SoundEvents.ANVIL_PLACE, 0.0F, 0.0F, () -> {
+
+{
+
+
+
+    Hard_PLATINUM_ARMOR("platinum_armor", 24, new int[]{3, 6, 7, 3}, 10, SoundEvents.ANVIL_PLACE, 0.5F, 0.0F, () -> {
         return Ingredient.of(ItemInit.PLATINUM_INGOT.get());
     });
+
+    public static Player player;
+
+
+
+
+
+
+
 
 
 
@@ -43,15 +58,15 @@ public enum ArmorMaterials implements ArmorMaterial {
     }
 
     public int getDurabilityForSlot(EquipmentSlot p_40484_) {
-        return HEALTH_PER_SLOT[p_40484_.getIndex()] * this.durabilityMultiplier;
+        return  (HEALTH_PER_SLOT[p_40484_.getIndex()] * this.durabilityMultiplier);
     }
 
     public int getDefenseForSlot(EquipmentSlot p_40487_) {
-        return this.slotProtections[p_40487_.getIndex()];
+        return  this.slotProtections[p_40487_.getIndex()];
     }
 
     public int getEnchantmentValue() {
-        return this.enchantmentValue;
+        return  this.enchantmentValue;
     }
 
     public SoundEvent getEquipSound() {
