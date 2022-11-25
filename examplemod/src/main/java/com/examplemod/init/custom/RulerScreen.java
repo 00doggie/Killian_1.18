@@ -41,9 +41,9 @@ public class RulerScreen  extends AbstractContainerScreen<RulerMenu> implements 
 
 
     public void resize(Minecraft p_97677_, int p_97678_, int p_97679_) {
-        String textFieldValue = this.NameBox.getValue();
+        name = this.NameBox.getValue();
         this.init(p_97677_, p_97678_, p_97679_);
-        this.NameBox.setValue(textFieldValue);
+        this.NameBox.setValue(name);
     }
     public void containerTick() {
         super.containerTick();
@@ -67,16 +67,8 @@ public class RulerScreen  extends AbstractContainerScreen<RulerMenu> implements 
         this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
 
 
-      name = "";
 
-        /*Optional<ServerPlayer> targetOp = serverLevel.getPlayers(playerTest -> playerTest.getName().getString().equals(name)).stream().findFirst();
-        if (targetOp.isPresent()) {
-            distanceBetween = targetOp.get().distanceTo(player);
-        } else {
-            //User does not exist!
-        }
 
-         */
 
 
 
@@ -91,11 +83,11 @@ public class RulerScreen  extends AbstractContainerScreen<RulerMenu> implements 
         this.NameBox.setEditable(true);
 
 
-      this.NameBox.setValue(name);
+ this.NameBox.setValue("");
         this.setInitialFocus(this.NameBox);
 
 
-
+this.name = DisplayDistancePacket.getName();
 
 
 
@@ -104,7 +96,7 @@ public class RulerScreen  extends AbstractContainerScreen<RulerMenu> implements 
     @Override
     public void onPress(Button button){
 
-ModMessages.sendToServer(new DisplayDistancePacket());
+ModMessages.sendToServer(new DisplayDistancePacket(this.name));
 onClose();
 
     }

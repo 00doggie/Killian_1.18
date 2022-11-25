@@ -15,7 +15,7 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 public class DisplayDistancePacket {
-public static  String name = RulerScreen.name;
+public static String name = RulerScreen.name;
     public static double distanceBetween;
 
 
@@ -23,13 +23,16 @@ public static  String name = RulerScreen.name;
 
 
 
-    public DisplayDistancePacket() {
+    public DisplayDistancePacket(String name) {
+        this.name = name;
     }
 
     public DisplayDistancePacket(FriendlyByteBuf buf) {
+        this.name = buf.readUtf();
     }
 
     public void toBytes(FriendlyByteBuf buf) {
+       buf.writeUtf(this.name);
     }
 
     public boolean handle(Supplier<NetworkEvent.Context> supplier) {
@@ -37,7 +40,7 @@ public static  String name = RulerScreen.name;
         context.enqueueWork(() -> {
        ServerPlayer player = context.getSender();
        ServerLevel serverLevel = player.getLevel();
-            name = "";
+
             Optional<ServerPlayer> targetOp = serverLevel.getPlayers(playerTest -> playerTest.getName().getString().equals(name)).stream().findFirst();
             if (targetOp.isPresent()) {
                 distanceBetween = targetOp.get().distanceTo(player);
@@ -55,5 +58,8 @@ public static  String name = RulerScreen.name;
 
         });
         return true;
+    }
+    public static String getName() {
+        return name;
     }
 }
