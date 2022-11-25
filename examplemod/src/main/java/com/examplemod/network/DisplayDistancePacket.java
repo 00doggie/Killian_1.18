@@ -11,10 +11,12 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraftforge.network.NetworkEvent;
 
+import java.util.Optional;
 import java.util.function.Supplier;
 
 public class DisplayDistancePacket {
- public static final String PLAYER_DISTANCE = "test";
+public static  String name = RulerScreen.name;
+    public static double distanceBetween;
 
 
 
@@ -34,11 +36,23 @@ public class DisplayDistancePacket {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
        ServerPlayer player = context.getSender();
+       ServerLevel serverLevel = player.getLevel();
+            name = "";
+            Optional<ServerPlayer> targetOp = serverLevel.getPlayers(playerTest -> playerTest.getName().getString().equals(name)).stream().findFirst();
+            if (targetOp.isPresent()) {
+                distanceBetween = targetOp.get().distanceTo(player);
+                Minecraft.getInstance().player.displayClientMessage(new TextComponent(name), false);
+            } else {
+                Minecraft.getInstance().player.displayClientMessage(new TextComponent("User Does not Exist"), false);
+                //User does not exist!
+
+            }
 
 
 
 
-            Minecraft.getInstance().player.displayClientMessage(new TextComponent(PLAYER_DISTANCE), false);
+
+
         });
         return true;
     }

@@ -3,6 +3,7 @@ package com.examplemod;
 import com.examplemod.init.BlockInit;
 import com.examplemod.init.FoodInit;
 import com.examplemod.init.ItemInit;
+import com.examplemod.network.ModMessages;
 import com.examplemod.util.*;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -29,6 +30,7 @@ public class ExampleMod{
         ModBlockEntities.BLOCK_ENTITIES.register(bus);
         MenuUtil.MENUS.register(bus);
         ModRecipes.SERIALIZERS.register(bus);
+        ModMessages.register();
 
 
 

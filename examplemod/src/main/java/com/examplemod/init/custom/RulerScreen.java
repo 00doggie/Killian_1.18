@@ -7,6 +7,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
@@ -16,22 +17,17 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 
-import java.lang.ref.WeakReference;
-import java.util.Optional;
-import java.util.UUID;
-import java.util.function.Supplier;
+
 
 public class RulerScreen  extends AbstractContainerScreen<RulerMenu> implements Button.OnPress {
     private EditBox NameBox;
-    private UUID uuid;
-    private int entityId;
-    private Supplier entitySupplier;
- public static String displayName = "";
-    public static double distanceBetween;
+
+
     public static String name;
- public static Player player;
-  public static  ServerLevel serverLevel;
-    public static String s=String.valueOf(distanceBetween);
+    public static double distanceBetween;
+
+    public static Player player;
+    public static  ServerLevel serverLevel;
 
 
 
@@ -71,16 +67,19 @@ public class RulerScreen  extends AbstractContainerScreen<RulerMenu> implements 
         this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
 
 
-        /*name = "";
-        Optional<ServerPlayer> targetOp = serverLevel.getPlayers(playerTest -> playerTest.getName().getString().equals(name)).stream().findFirst();
+      name = "";
+
+        /*Optional<ServerPlayer> targetOp = serverLevel.getPlayers(playerTest -> playerTest.getName().getString().equals(name)).stream().findFirst();
         if (targetOp.isPresent()) {
             distanceBetween = targetOp.get().distanceTo(player);
         } else {
             //User does not exist!
-
         }
 
          */
+
+
+
 
 
 
@@ -92,7 +91,7 @@ public class RulerScreen  extends AbstractContainerScreen<RulerMenu> implements 
         this.NameBox.setEditable(true);
 
 
-   //this.NameBox.setValue(name);
+      this.NameBox.setValue(name);
         this.setInitialFocus(this.NameBox);
 
 
@@ -104,7 +103,7 @@ public class RulerScreen  extends AbstractContainerScreen<RulerMenu> implements 
 
     @Override
     public void onPress(Button button){
-//Minecraft.getInstance().player.displayClientMessage(Component.nullToEmpty(DisplayDistancePacket.PLAYER_DISTANCE), false);
+
 ModMessages.sendToServer(new DisplayDistancePacket());
 onClose();
 
