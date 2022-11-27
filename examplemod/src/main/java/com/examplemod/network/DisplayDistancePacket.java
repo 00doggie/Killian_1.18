@@ -5,6 +5,8 @@ import com.examplemod.init.custom.RulerScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.protocol.Packet;
+
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EntityType;
@@ -14,7 +16,7 @@ import net.minecraftforge.network.NetworkEvent;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-public class DisplayDistancePacket {
+public class DisplayDistancePacket  {
 public static String name = RulerScreen.name;
     public static double distanceBetween;
 
@@ -23,16 +25,16 @@ public static String name = RulerScreen.name;
 
 
 
-    public DisplayDistancePacket(String name) {
-        this.name = name;
+    public DisplayDistancePacket() {
+
     }
 
     public DisplayDistancePacket(FriendlyByteBuf buf) {
-        this.name = buf.readUtf();
+
     }
 
     public void toBytes(FriendlyByteBuf buf) {
-       buf.writeUtf(this.name);
+
     }
 
     public boolean handle(Supplier<NetworkEvent.Context> supplier) {
@@ -59,7 +61,7 @@ public static String name = RulerScreen.name;
         });
         return true;
     }
-    public static String getName() {
-        return name;
-    }
+
+
+
 }
