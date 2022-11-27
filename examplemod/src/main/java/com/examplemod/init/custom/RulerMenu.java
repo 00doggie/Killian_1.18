@@ -42,9 +42,7 @@ public class RulerMenu extends AbstractContainerMenu implements Supplier<Map<Int
             this.z = pos.getZ();
         }
     }
-    public String getName(String value) {
-        return RulerScreen.name;
-    }
+
 
     @Override
     public boolean stillValid(Player player) {

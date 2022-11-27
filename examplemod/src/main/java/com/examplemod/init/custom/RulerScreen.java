@@ -79,17 +79,10 @@ public class RulerScreen  extends AbstractContainerScreen<RulerMenu> implements 
 
         this.NameBox.setMaxLength(16);
 
-        this.NameBox.setValue("");
+        this.NameBox.setValue("Dev");
         this.addWidget(this.NameBox);
         this.setInitialFocus(this.NameBox);
         this.NameBox.setEditable(true);
-
-        NameBox = new EditBox(this.font, this.width / 2 - 92, this.height / 4 - 10, 184, 20, new TextComponent("name"));
-        NameBox.setMaxLength(60);
-        this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-        this.NameBox.setValue("");
-        this.addRenderableWidget(this.NameBox);
-
 
 
         this.addRenderableWidget(new Button(this.width / 2 - 75, this.height * 3 / 4 - 10, 150, 20,
@@ -115,7 +108,6 @@ public class RulerScreen  extends AbstractContainerScreen<RulerMenu> implements 
     public void onPress(Button button){
 
 ModMessages.sendToServer(new DisplayDistancePacket());
-
 
 onClose();
 

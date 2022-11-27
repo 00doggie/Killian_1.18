@@ -17,7 +17,7 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 public class DisplayDistancePacket  {
-public static String name = RulerScreen.name;
+    public static String name = RulerScreen.name;
     public static double distanceBetween;
 
 
@@ -25,7 +25,7 @@ public static String name = RulerScreen.name;
 
 
 
-    public DisplayDistancePacket() {
+    public DisplayDistancePacket( ){
 
     }
 
@@ -61,6 +61,7 @@ public static String name = RulerScreen.name;
         });
         return true;
     }
+
 
 
 
