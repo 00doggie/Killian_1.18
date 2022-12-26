@@ -4,6 +4,7 @@ import com.examplemod.ExampleMod;
 import com.examplemod.network.DisplayDistancePacket;
 import com.examplemod.network.ModMessages;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.SharedConstants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
@@ -21,33 +22,23 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.fml.common.Mod;
-
-import javax.annotation.Nullable;
 
 
-@Mod.EventBusSubscriber(modid = ExampleMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class RulerScreen  extends AbstractContainerScreen<RulerMenu> implements Button.OnPress {
     private EditBox NameBox;
 
 
     public static String name;
-    public static double distanceBetween;
+
 
     public static Player player;
-    public static  ServerLevel serverLevel;
+
 
 
 
     public RulerScreen(RulerMenu p_97741_, Inventory p_97742_, Component p_97743_) {
         super(p_97741_, p_97742_, p_97743_);
     }
-
-
-
-
-
 
     public void resize(Minecraft p_97677_, int p_97678_, int p_97679_) {
         String s = this.NameBox.getValue();
@@ -65,10 +56,6 @@ public class RulerScreen  extends AbstractContainerScreen<RulerMenu> implements 
     }
 
 
-
-
-
-
     @Override
     protected void init() {
         this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
@@ -79,7 +66,7 @@ public class RulerScreen  extends AbstractContainerScreen<RulerMenu> implements 
 
         this.NameBox.setMaxLength(16);
 
-        this.NameBox.setValue("Dev");
+
         this.addWidget(this.NameBox);
         this.setInitialFocus(this.NameBox);
         this.NameBox.setEditable(true);
@@ -89,29 +76,19 @@ public class RulerScreen  extends AbstractContainerScreen<RulerMenu> implements 
                 CommonComponents.GUI_DONE,  this::onPress));
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
     @Override
     public void onPress(Button button){
 
-ModMessages.sendToServer(new DisplayDistancePacket());
+ModMessages.sendToServer(new DisplayDistancePacket(name));
 
 onClose();
 
+
     }
+
+
 
 
 

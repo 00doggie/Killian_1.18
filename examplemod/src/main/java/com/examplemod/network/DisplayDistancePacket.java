@@ -11,29 +11,35 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.network.NetworkEvent;
 
 import java.util.Optional;
+import java.util.UUID;
 import java.util.function.Supplier;
 
 public class DisplayDistancePacket  {
     public static String name = RulerScreen.name;
+    public static UUID nameUUID = UUID.fromString(name);
     public static double distanceBetween;
+    public static String dis = Double.toString(distanceBetween);
 
 
 
 
 
 
-    public DisplayDistancePacket( ){
-
+    public DisplayDistancePacket(String Name ){
+        this.name = Name;
     }
 
     public DisplayDistancePacket(FriendlyByteBuf buf) {
-
+        this.nameUUID = buf.readUUID();
     }
 
     public void toBytes(FriendlyByteBuf buf) {
+    buf.writeUUID(this.nameUUID);
+
 
     }
 
@@ -44,9 +50,12 @@ public class DisplayDistancePacket  {
        ServerLevel serverLevel = player.getLevel();
 
             Optional<ServerPlayer> targetOp = serverLevel.getPlayers(playerTest -> playerTest.getName().getString().equals(name)).stream().findFirst();
+
             if (targetOp.isPresent()) {
                 distanceBetween = targetOp.get().distanceTo(player);
                 Minecraft.getInstance().player.displayClientMessage(new TextComponent(name), false);
+
+
             } else {
                 Minecraft.getInstance().player.displayClientMessage(new TextComponent("User Does not Exist"), false);
                 //User does not exist!
@@ -58,9 +67,15 @@ public class DisplayDistancePacket  {
 
 
 
+
+
         });
         return true;
     }
+    public String getName() {
+        return this.name;
+    }
+
 
 
 

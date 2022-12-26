@@ -48,7 +48,7 @@ public class CheeseMakerEntity extends BlockEntity implements MenuProvider {
 
     protected final ContainerData data;
     private int progress = 0;
-    private int maxProgress = 100;
+    private int maxProgress = 120;
 
     public CheeseMakerEntity(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.CHEESE_MAKER_ENTITY.get(), pWorldPosition, pBlockState);
@@ -190,7 +190,7 @@ public class CheeseMakerEntity extends BlockEntity implements MenuProvider {
             entity.itemHandler.extractItem(1,1, false);
 
             entity.itemHandler.setStackInSlot(0, new ItemStack(match.get().getResultItem().getItem(),
-                    entity.itemHandler.getStackInSlot(1).getCount() + 1));
+                    entity.itemHandler.getStackInSlot(0).getCount() + 1));
 
 
             entity.resetProgress();

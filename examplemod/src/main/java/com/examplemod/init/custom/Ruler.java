@@ -61,10 +61,6 @@ public class Ruler extends Item {
     }
 
 
-
-
-
-
         //uses packets to communicate with the server
 
 
